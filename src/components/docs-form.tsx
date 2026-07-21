@@ -16,6 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Plus, ImagePlus, X } from "lucide-react";
+import { RichTextEditor } from "./text-editor";
 
 interface StepFormItem {
   key: string;
@@ -179,10 +180,9 @@ export function DocsForm({ mode, docsToEdit, stepsToEdit }: DocsFormProps) {
 
         <div className="grid gap-2">
           <Label htmlFor="description">Deskripsi</Label>
-          <Textarea
-            id="description"
+          <RichTextEditor
             value={docsForm.description}
-            onChange={(e) => setDocsForm({ ...docsForm, description: e.target.value })}
+            onChange={(html) => setDocsForm({ ...docsForm, description: html })}
             placeholder="Ringkasan singkat tutorial ini"
           />
         </div>
@@ -269,9 +269,9 @@ export function DocsForm({ mode, docsToEdit, stepsToEdit }: DocsFormProps) {
 
                 <div className="grid gap-2">
                   <Label>Deskripsi</Label>
-                  <Textarea
+                  <RichTextEditor
                     value={step.description}
-                    onChange={(e) => updateStep(step.key, { description: e.target.value })}
+                    onChange={(html) => updateStep(step.key, { description: html })}
                     placeholder="Penjelasan langkah ini"
                   />
                 </div>

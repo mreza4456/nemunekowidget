@@ -135,9 +135,7 @@ export default function ToolsHubClient({ docs }: { docs: DocsWithSteps[] }) {
                     )}
                   </div>
                   {doc.description && (
-                    <p className="truncate text-xs text-muted-foreground">
-                      {doc.description}
-                    </p>
+                    <div dangerouslySetInnerHTML={{ __html: doc.description }} className="truncate text-xs text-muted-foreground"/>
                   )}
                 </div>
               </button>
@@ -166,9 +164,7 @@ export default function ToolsHubClient({ docs }: { docs: DocsWithSteps[] }) {
                 )}
               </div>
               {active.description && (
-                <p className="max-w-xl text-sm text-muted-foreground">
-                  {active.description}
-                </p>
+                 <div dangerouslySetInnerHTML={{ __html: active.description }} className="max-w-xl text-sm text-muted-foreground"/>
               )}
             </div>
 
@@ -204,15 +200,13 @@ export default function ToolsHubClient({ docs }: { docs: DocsWithSteps[] }) {
                 <div className="space-y-6">
                   {active.steps.map((s, i) => (
                     <div key={s.id} className="flex gap-4">
-                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-xs font-medium">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border bg-slate-900 text-white font-bold text-xs font-medium">
                         {i + 1}
                       </div>
                       <div className="min-w-0 flex-1 space-y-2">
                         <h3 className="text-sm font-medium">{s.title}</h3>
                         {s.description && (
-                          <p className="text-sm text-muted-foreground">
-                            {s.description}
-                          </p>
+                            <div dangerouslySetInnerHTML={{ __html: s.description }} className=" text-sm  prose"/>
                         )}
                         {s.image && (
                           <div className="overflow-hidden rounded-md border">

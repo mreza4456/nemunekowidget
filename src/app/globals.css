@@ -128,3 +128,8 @@
     @apply font-sans;
   }
 }
+
+.prose a {
+  color: #2563eb; /* blue-600 */
+  text-decoration: underline;
+}
